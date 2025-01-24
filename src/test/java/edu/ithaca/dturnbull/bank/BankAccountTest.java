@@ -30,7 +30,8 @@ class BankAccountTest {
         assertFalse(BankAccount.isEmailValid("renn@ithaca"));      // no ".com" 
         assertFalse(BankAccount.isEmailValid("@ithaca.com")); // no text before @
         assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); // no "." before "com"
-        
+        assertFalse(BankAccount.isEmailValid("_k@gmail.com"));  // cannot start with a special character
+        assertFalse(BankAccount.isEmailValid("g@.com"));       // needs to have text before "."
     }
 
     @Test
