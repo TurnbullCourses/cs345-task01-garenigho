@@ -44,7 +44,11 @@ public class BankAccount {
             return false;
         }
         else {
-            return true;
+            if (email[0] != ["a-zA-Z0-9"]){
+                return false;
+            }else{
+                return true;
+            }
         }
     }
 }

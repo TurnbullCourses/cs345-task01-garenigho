@@ -26,10 +26,10 @@ class BankAccountTest {
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
         assertFalse( BankAccount.isEmailValid(""));         // empty string
-        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));       // no @ symbol
-        assertFalse(BankAccount.isEmailValid("renn@ithaca"));      // no ".com" 
-        assertFalse(BankAccount.isEmailValid("@ithaca.com")); // no text before @
-        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); // no "." before "com"
+        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));       
+        assertFalse(BankAccount.isEmailValid("renn@ithaca"));       
+        assertFalse(BankAccount.isEmailValid("@ithaca.com")); 
+        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); 
         
     }
 
