@@ -44,10 +44,29 @@ public class BankAccount {
             return false;
         }
         else {
-            if (email[0] != ["a-zA-Z0-9"]){
+            if (!email.matches("^[a-zA-Z0-9].*")){
                 return false;
             }else{
-                return true;
+                String user = email.substring(0, email.indexOf('@'));
+                String domain = email.substring(email.indexOf('@')+1, email.length());
+                if (user == "" || domain == ""){
+                    return false;
+                }
+                else{
+                    if (domain.indexOf('.') == -1){
+                        return false;
+                    }
+                    else{
+                        String predot = domain.substring(0, domain.indexOf('.'));
+                        String dot = domain.substring(domain.indexOf('.'), domain.length());
+                        if (dot == "" || predot == ""){
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                }
             }
         }
     }

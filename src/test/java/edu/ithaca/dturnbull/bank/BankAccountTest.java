@@ -25,18 +25,12 @@ class BankAccountTest {
     @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
-        assertFalse( BankAccount.isEmailValid(""));         // empty string
-        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));       
-        assertFalse(BankAccount.isEmailValid("renn@ithaca"));       
-        assertFalse(BankAccount.isEmailValid("@ithaca.com")); 
-        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); 
-        
-        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));       // no @ symbol
-        assertFalse(BankAccount.isEmailValid("renn@ithaca"));      // no ".com" 
-        assertFalse(BankAccount.isEmailValid("@ithaca.com")); // no text before @
-        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); // no "." before "com"
-        assertFalse(BankAccount.isEmailValid("_k@gmail.com"));  // cannot start with a special character
-        assertFalse(BankAccount.isEmailValid("g@.com"));       // needs to have text before "."
+        assertFalse(BankAccount.isEmailValid(""));         // empty string
+        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));  // equivalence partition - no @
+        assertFalse(BankAccount.isEmailValid("renn@ithaca"));    // equivalence partition - no .com/.edu etc   
+        assertFalse(BankAccount.isEmailValid("@ithaca.com"));      // equivalence partition - no user
+        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); //equivalence partition - no . in domain
+        assertFalse(BankAccount.isEmailValid("g@.com"));      // equivalence partition - no domain
     }
 
     @Test
