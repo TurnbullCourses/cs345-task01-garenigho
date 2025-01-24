@@ -26,7 +26,10 @@ class BankAccountTest {
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
         assertFalse( BankAccount.isEmailValid(""));         // empty string
-
+        assertFalse(BankAccount.isEmailValid("gighoithaca.com"));       // no @ symbol
+        assertFalse(BankAccount.isEmailValid("renn@ithaca"));      // no ".com" 
+        assertFalse(BankAccount.isEmailValid("@ithaca.com")); // no text before @
+        assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); // no "." before "com"
         
     }
 
@@ -39,5 +42,6 @@ class BankAccountTest {
         //check for exception thrown correctly
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
     }
+    
 
 }
