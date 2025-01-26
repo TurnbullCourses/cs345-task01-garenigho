@@ -25,12 +25,12 @@ class BankAccountTest {
     @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
-        assertFalse(BankAccount.isEmailValid(""));         // empty string
+        assertFalse(BankAccount.isEmailValid(""));         // empty string - boundary case
         assertFalse(BankAccount.isEmailValid("gighoithaca.com"));  // equivalence partition - no @
         assertFalse(BankAccount.isEmailValid("renn@ithaca"));    // equivalence partition - no .com/.edu etc   
-        assertFalse(BankAccount.isEmailValid("@ithaca.com"));      // equivalence partition - no user
+        assertFalse(BankAccount.isEmailValid("@ithaca.com"));      // equivalence partition - no user - boundary case
         assertFalse(BankAccount.isEmailValid("garenigho@gmailcom")); //equivalence partition - no . in domain
-        assertFalse(BankAccount.isEmailValid("g@.com"));      // equivalence partition - no domain
+        assertFalse(BankAccount.isEmailValid("g@.com"));      // equivalence partition - no domain - boundary case
     }
 
     @Test
